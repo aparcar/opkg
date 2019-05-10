@@ -70,6 +70,7 @@ opkg_option_t options[] = {
 	{"proxy_user", OPKG_OPT_TYPE_STRING, &_conf.proxy_user},
 	{"query-all", OPKG_OPT_TYPE_BOOL, &_conf.query_all},
 	{"size", OPKG_OPT_TYPE_BOOL, &_conf.size},
+	{"license", OPKG_OPT_TYPE_BOOL, &_conf.license},
 	{"tmp_dir", OPKG_OPT_TYPE_STRING, &_conf.tmp_dir},
 	{"verbosity", OPKG_OPT_TYPE_INT, &_conf.verbosity},
 	{NULL, 0, NULL}

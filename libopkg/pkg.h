@@ -79,6 +79,7 @@ typedef enum pkg_state_status pkg_state_status_t;
 
 enum pkg_fields {
 	PKG_MAINTAINER,
+	PKG_LICENSE,
 	PKG_PRIORITY,
 	PKG_SOURCE,
 	PKG_TAGS,

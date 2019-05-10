@@ -269,6 +269,11 @@ int pkg_parse_line(void *ptr, char *line, uint mask)
 			pkg_set_int(pkg, PKG_INSTALLED_TIME, strtoul(line + strlen("Installed-Time") + 1, NULL, 0));
 		}
 		break;
+	case 'l':
+	case 'L':
+		if ((mask & PFM_LICENSE) && is_field("License:", line))
+			pkg_set_string(pkg, PKG_LICENSE, line + strlen("License") + 1);
+		break;
 
 	case 'M':
 		if ((mask & PFM_MD5SUM) && (is_field("MD5sum:", line) || is_field("MD5Sum:", line)))
