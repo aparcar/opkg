@@ -54,6 +54,7 @@ enum {
 	ARGS_OPT_FORCE_SIGNATURE,
 	ARGS_OPT_NO_CHECK_CERTIFICATE,
 	ARGS_OPT_SIZE,
+	ARGS_OPT_LICENSE,
 };
 
 static struct option long_options[] = {
@@ -103,6 +104,7 @@ static struct option long_options[] = {
 	{"add-arch", 1, 0, ARGS_OPT_ADD_ARCH},
 	{"add-dest", 1, 0, ARGS_OPT_ADD_DEST},
 	{"size", 0, 0, ARGS_OPT_SIZE},
+	{"license", 0, 0, ARGS_OPT_LICENSE},
 	{"test", 0, 0, ARGS_OPT_NOACTION},
 	{"tmp-dir", 1, 0, 't'},
 	{"tmp_dir", 1, 0, 't'},
@@ -219,6 +221,9 @@ static int args_parse(int argc, char *argv[])
 			break;
 		case ARGS_OPT_SIZE:
 			conf->size = 1;
+			break;
+		case ARGS_OPT_LICENSE:
+			conf->license = 1;
 			break;
 		case ARGS_OPT_NOACTION:
 			conf->noaction = 1;
@@ -349,6 +354,8 @@ static void usage()
 	    ("\t--nocase		Perform case insensitive pattern matching\n");
 	printf
 	    ("\t--size			Print package size when listing available packages\n");
+	printf
+	    ("\t--license		Print package license when listing available packages\n");
 	printf("\t--force-removal-of-dependent-packages\n");
 	printf("\t			Remove package and all dependencies\n");
 	printf("\t--autoremove		Remove packages that were installed\n");

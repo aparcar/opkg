@@ -777,6 +777,15 @@ void pkg_formatted_field(FILE * fp, pkg_t * pkg, const char *field)
 			}
 		}
 		break;
+	case 'l':
+	case 'L':
+		if (strcasecmp(field, "License") == 0) {
+			p = pkg_get_string(pkg, PKG_LICENSE);
+			if (p && *p) {
+				fprintf(fp, "License: %s\n", p);
+			}
+		}
+		break;
 	case 'm':
 	case 'M':
 		if (strcasecmp(field, "Maintainer") == 0) {
@@ -926,6 +935,7 @@ void pkg_formatted_info(FILE * fp, pkg_t * pkg)
 	pkg_formatted_field(fp, pkg, "Package");
 	pkg_formatted_field(fp, pkg, "Version");
 	pkg_formatted_field(fp, pkg, "Depends");
+	pkg_formatted_field(fp, pkg, "License");
 	pkg_formatted_field(fp, pkg, "Recommends");
 	pkg_formatted_field(fp, pkg, "Suggests");
 	pkg_formatted_field(fp, pkg, "Provides");
@@ -956,6 +966,7 @@ void pkg_print_status(pkg_t * pkg, FILE * file)
 	pkg_formatted_field(file, pkg, "Package");
 	pkg_formatted_field(file, pkg, "Version");
 	pkg_formatted_field(file, pkg, "Depends");
+	pkg_formatted_field(file, pkg, "License");
 	pkg_formatted_field(file, pkg, "Recommends");
 	pkg_formatted_field(file, pkg, "Suggests");
 	pkg_formatted_field(file, pkg, "Provides");

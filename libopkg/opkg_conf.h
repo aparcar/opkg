@@ -87,6 +87,7 @@ struct opkg_conf {
 	int verbosity;
 	int noaction;
 	int size;
+	int license;
 	int download_only;
 	char *cache;
 
